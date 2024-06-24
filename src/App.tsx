@@ -1,5 +1,8 @@
 //import { FC } from "react";
 
+import { useEffect } from "react";
+import { getRandomUsers } from "./API/RandomUser";
+
 // way 1- Declare types using interface (most popular way)
 /*interface Props {
   title: string;
@@ -20,6 +23,10 @@ type Props = {
 //const App = (props: Props) => {
 // way 3 - Declare types using inline declaration
 const App = ({ title }: { title: string }) => {
+
+  useEffect(() => {
+    getRandomUsers();
+  });
 
   return (
     <h1>Test App - {title}</h1>
