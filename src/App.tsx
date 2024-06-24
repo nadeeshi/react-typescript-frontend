@@ -1,6 +1,12 @@
 //import { FC } from "react";
 
-interface Props {
+// Declare types using interface (most popular way)
+/*interface Props {
+  title: string;
+}*/
+
+// Declare types using type keyword
+type Props = {
   title: string;
 }
 
@@ -14,7 +20,7 @@ interface Props {
 const App = (props: Props) => {
   
   return (
-    <div>Test App</div>
+    <div>Test App - {props.title}</div>
   )
 }
 
