@@ -19,10 +19,10 @@ type Props = {
 //const App: FC<Props> = () => {
 //const App = (props: Props) => {
 // way 3 - Declare types using inline declaration
-const App = ({title}:{title: string}) => {
-  
+const App = ({ title }: { title: string }) => {
+
   return (
-    <div>Test App - {title}</div>
+    <h1>Test App - {title}</h1>
   )
 }
 
