@@ -1,11 +1,11 @@
 //import { FC } from "react";
 
-// Declare types using interface (most popular way)
+// way 1- Declare types using interface (most popular way)
 /*interface Props {
   title: string;
 }*/
 
-// Declare types using type keyword
+// way 2- Declare types using type keyword
 type Props = {
   title: string;
 }
@@ -17,10 +17,12 @@ type Props = {
  */
 
 //const App: FC<Props> = () => {
-const App = (props: Props) => {
+//const App = (props: Props) => {
+// way 3 - Declare types using inline declaration
+const App = ({title}:{title: string}) => {
   
   return (
-    <div>Test App - {props.title}</div>
+    <div>Test App - {title}</div>
   )
 }
 
