@@ -3,9 +3,12 @@ import axios from "axios";
 export const getRandomUsers = async (): Promise<any> => {
   try {
     const response = await axios.get("https://randomuser.me/api/?results=10");
-    console.log("Random users: ", response);
+    //console.log("Random users: ", response);
 
-    return response;
+    if (response && response.data) {
+      console.log("Random users: ", response.data.results);
+      return response.data.results;
+    }
   } catch (error) {
     console.log("Failed to generate random users ", error);
   }
