@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { getRandomUsers } from "./API/RandomUser";
+import { IUser } from "./types/User";
 
 // way 1- Declare types using interface (most popular way)
 /*interface Props {
@@ -24,7 +25,7 @@ type Props = {
 // way 3 - Declare types using inline declaration
 const App = ({ title }: { title: string }) => {
 
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<IUser[]>([]);
 
   useEffect(() => {
     getRandomUsers().then((users) => {
@@ -38,17 +39,17 @@ const App = ({ title }: { title: string }) => {
 
       <h3>Users List</h3>
       <ul>
-        {users && users.map(({ login, name, email, gender }) => {
+        {users && users.map((user) => {
           return (
-            <li key={login.uuid}>
+            <li key={user.login.uuid}>
               <div>
-                Name: {name.first} {name.last}
+                Name: {user.name.first} {user.name.last}
               </div>
               <div>
-                Email: {email}
+                Email: {user.email}
               </div>
               <div>
-                Gender: {gender}
+                Gender: {user.gender}
               </div>
               <hr />
             </li>
