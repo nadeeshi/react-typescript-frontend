@@ -1,3 +1,7 @@
+/**
+ * interface declarations
+ */
+
 export interface IUser {
   login: IUserLogin;
   name: IUserName;
