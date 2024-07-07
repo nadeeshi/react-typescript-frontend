@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { getRandomUsers } from "./API/RandomUser";
 import { IUser } from "./types/User";
+import User from "./Components/User";
 
 // way 1- Declare types using interface (most popular way)
 /*interface Props {
@@ -39,21 +40,8 @@ const App = ({ title }: { title: string }) => {
 
       <h3>Users List</h3>
       <ul>
-        {users && users.map((user) => {
-          return (
-            <li key={user.login.uuid}>
-              <div>
-                Name: {user.name.first} {user.name.last}
-              </div>
-              <div>
-                Email: {user.email}
-              </div>
-              <div>
-                Gender: {user.gender}
-              </div>
-              <hr />
-            </li>
-          )
+        {users && users.map((user, index) => {
+          return <User key={index} user={user} />
         })}
       </ul>
     </>
