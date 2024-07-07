@@ -1,6 +1,6 @@
 //import { FC } from "react";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getRandomUsers } from "./API/RandomUser";
 import { IUser } from "./types/User";
 import User from "./Components/User";
@@ -30,6 +30,8 @@ const App = ({ title }: { title: string }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showUsers, setShowUsers] = useState<boolean>(false);
 
+  const [username, setUsername] = useState('');
+
   useEffect(() => {
     setIsLoading(true);
     getRandomUsers().then((users) => {
@@ -42,12 +44,19 @@ const App = ({ title }: { title: string }) => {
     setShowUsers(true);
   }
 
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUsername(event.target.value);
+  }
+
   return (
     <>
       <h1>Test App - {title}</h1>
 
       <h3>Users List</h3>
 
+      <input type="text" onChange={handleChange} /> : <div>{username}</div>
+
+      <br />
       <button onClick={handleClick}>Show Users</button>
 
       {isLoading && <p>Loading users...</p>}
