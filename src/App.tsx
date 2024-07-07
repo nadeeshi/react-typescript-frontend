@@ -27,10 +27,13 @@ type Props = {
 const App = ({ title }: { title: string }) => {
 
   const [users, setUsers] = useState<IUser[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
+    setIsLoading(true);
     getRandomUsers().then((users) => {
       setUsers(users);
+      setIsLoading(false);
     });
   }, []);
 
@@ -39,6 +42,8 @@ const App = ({ title }: { title: string }) => {
       <h1>Test App - {title}</h1>
 
       <h3>Users List</h3>
+
+      {isLoading && <p>Loading users...</p>}
       <ul>
         {users && users.map((user, index) => {
           return <User key={index} user={user} />
