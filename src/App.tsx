@@ -28,6 +28,7 @@ const App = ({ title }: { title: string }) => {
 
   const [users, setUsers] = useState<IUser[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [showUsers, setShowUsers] = useState<boolean>(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -37,18 +38,25 @@ const App = ({ title }: { title: string }) => {
     });
   }, []);
 
+  const handleClick = () => {
+    setShowUsers(true);
+  }
+
   return (
     <>
       <h1>Test App - {title}</h1>
 
       <h3>Users List</h3>
 
+      <button onClick={handleClick}>Show Users</button>
+
       {isLoading && <p>Loading users...</p>}
-      <ul>
+
+      {showUsers && <ul>
         {users && users.map((user, index) => {
           return <User key={index} user={user} />
         })}
-      </ul>
+      </ul>}
     </>
   )
 }
