@@ -9,7 +9,7 @@ jobs:
     name: Build and deploy
     runs-on: ubuntu-latest
     env:
-    GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+    GITHUB_TOKEN: ${{ secrets.NADEE_GITHUB_TOKEN_FRONTEND }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
