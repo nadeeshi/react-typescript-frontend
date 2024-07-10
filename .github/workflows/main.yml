@@ -17,5 +17,5 @@ jobs:
         uses: rymndhng/release-on-push-action@master
         with:
         bump_version_scheme: patch
-
       - name: Build the Docker image
+        run: docker build
