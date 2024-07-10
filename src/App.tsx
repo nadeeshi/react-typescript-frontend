@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { getRandomUsers } from "./API/RandomUser";
 import { IUser } from "./types/User";
 import User from "./Components/User";
+import Customer from "./Components/Customers/Customer";
 
 // way 1- Declare types using interface (most popular way)
 /*interface Props {
@@ -66,6 +67,9 @@ const App = ({ title }: { title: string }) => {
           return <User key={index} user={user} />
         })}
       </ul>}
+
+      <h3>Customers List</h3>
+      <Customer />
     </>
   )
 }
