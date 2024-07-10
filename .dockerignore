@@ -1,0 +1,3 @@
+# specify which files and directories should be ignored when building a Docker image
+node_modules
+build
