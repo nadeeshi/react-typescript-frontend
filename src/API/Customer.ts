@@ -17,3 +17,23 @@ export const getCustomers = async (): Promise<ICustomer[] | null> => {
     return null;
   }
 };
+
+export const addCustomer = async (
+  customer: ICustomer
+): Promise<ICustomer | null> => {
+  try {
+    const response = await axios.post(
+      `${API_URL}/api/rest/customers`,
+      customer
+    );
+
+    if (response.data) {
+      return response.data;
+    } else {
+      return null;
+    }
+  } catch (error) {
+    console.log("Failed to add customer ", error);
+    return null;
+  }
+};
