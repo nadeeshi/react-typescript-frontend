@@ -3,6 +3,7 @@ import AppDrawer from "../Components/Drawer/Drawer";
 import UserPage from "../Pages/Users/User";
 import CustomerPage from "../Pages/Customers/Customers";
 import AddCustomer from "../Components/Customers/AddCustomer";
+import DashboardPage from "../Pages/Dashboard/Dashboard";
 
 const Routes = () => {
 
@@ -18,7 +19,7 @@ const Routes = () => {
             children: [
                 {
                     path: '/',
-                    element: <UserPage title="Test" />
+                    element:  <DashboardPage />
                 },
                 {
                     path: '/customers',
@@ -27,6 +28,10 @@ const Routes = () => {
                 {
                     path: 'editCustomer',
                     element: <AddCustomer />,
+                },
+                {
+                    path: '/users',
+                    element: <UserPage title="Test" />
                 }
             ]
         }
