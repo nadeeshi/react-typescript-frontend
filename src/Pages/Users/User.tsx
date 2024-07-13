@@ -50,7 +50,7 @@ const UserPage = ({ title }: { title: string }) => {
 
     return (
         <>
-            <h1>Test App - {title}</h1>
+            {/* <h1>Test App - {title}</h1>*/}
 
             <h3>Users List</h3>
 

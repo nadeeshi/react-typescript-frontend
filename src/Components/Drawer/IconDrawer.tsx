@@ -56,11 +56,12 @@ const closedMixin = (theme: Theme): CSSObject => ({
     },
 });
 
-const adminMenu = ['Dashboard', 'Customers'];
+const adminMenu = ['Dashboard', 'Customers', 'Users'];
 
 const adminIcons: { icon: JSX.Element; to: string; }[] = [
     { icon: <DashboardIcon />, to: '/' },
-    { icon: <GroupIcon />, to: '/customers' }
+    { icon: <GroupIcon />, to: '/customers' },
+    { icon: <GroupIcon />, to: '/users' }
 ]
 
 
