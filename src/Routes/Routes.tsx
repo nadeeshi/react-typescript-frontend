@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppDrawer from "../Components/Drawer/Drawer";
 import UserPage from "../Pages/Users/User";
 import CustomerPage from "../Pages/Customers/Customers";
+import AddCustomer from "../Components/Customers/AddCustomer";
 
 const Routes = () => {
 
@@ -22,6 +23,10 @@ const Routes = () => {
                 {
                     path: '/customers',
                     element: <CustomerPage />
+                },
+                {
+                    path: 'editCustomer',
+                    element: <AddCustomer />,
                 }
             ]
         }

@@ -37,3 +37,43 @@ export const addCustomer = async (
     return null;
   }
 };
+
+export const getCustomer = async (
+  customerId: string
+): Promise<ICustomer | null> => {
+  try {
+    const response = await axios.get(
+      `${API_URL}/api/rest/customers/${customerId}`
+    );
+
+    if (response.data) {
+      return response.data;
+    } else {
+      return null;
+    }
+  } catch (error) {
+    console.log("Failed to load customer ", error);
+    return null;
+  }
+};
+
+export const updateCustomer = async (
+  customerId: string,
+  customer: ICustomer
+): Promise<ICustomer | null> => {
+  try {
+    const response = await axios.put(
+      `${API_URL}/api/rest/customers/${customerId}`,
+      customer
+    );
+
+    if (response.data) {
+      return response.data;
+    } else {
+      return null;
+    }
+  } catch (error) {
+    console.log("Failed to update customer ", error);
+    return null;
+  }
+};
