@@ -77,3 +77,22 @@ export const updateCustomer = async (
     return null;
   }
 };
+
+export const removeCustomer = async (
+  customerId: string
+): Promise<null> => {
+  try {
+    const response = await axios.delete(
+      `${API_URL}/api/rest/customers/${customerId}`
+    );
+
+    if (response.data) {
+      return response.data;
+    } else {
+      return null;
+    }
+  } catch (error) {
+    console.log("Failed to remove customer ", error);
+    return null;
+  }
+};

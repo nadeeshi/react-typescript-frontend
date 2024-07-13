@@ -1,7 +1,7 @@
 import { Button, DialogActions, TextField } from "@mui/material";
 import { ICustomer } from "../../types/Customer";
 import { ChangeEvent, useState } from "react";
-import { addCustomer, updateCustomer } from "../../API/Customer";
+import { addCustomer, removeCustomer, updateCustomer } from "../../API/Customer";
 import { toast, ToastContainer } from "react-toastify";
 import { useLocation } from "react-router-dom";
 
@@ -97,6 +97,31 @@ const AddCustomer = () => {
         });
     }
 
+    const handleRemoveCustomer = async () => {
+
+        const toasterObj = {
+            position: toast.POSITION.TOP_RIGHT,
+            autoClose: 3000,
+            hideProgressBar: true
+        };
+
+        try {
+
+            await removeCustomer(selectedCustomer?.id);
+
+            setState({
+                firstName: '',
+                lastName: '',
+                email: ''
+            });
+
+            toast.success('Customer removed!', toasterObj);
+
+        } catch (error) {
+            toast.error('Failed to remove customer', toasterObj);
+        }
+    }
+
     return (
         <>
             <h4>{selectedCustomer?.id ? 'Edit Customer' : 'Add Customer'}</h4>
@@ -142,6 +167,10 @@ const AddCustomer = () => {
                 />
 
                 <DialogActions>
+                    {selectedCustomer?.id && <Button onClick={handleRemoveCustomer} variant="contained"
+                        style={{ background: 'red' }}>
+                        Remove Customer
+                    </Button>}
                     <Button onClick={handleAddCustomer} variant="contained">
                         {selectedCustomer?.id ? 'Update Customer' : 'Add Customer'}
                     </Button>
