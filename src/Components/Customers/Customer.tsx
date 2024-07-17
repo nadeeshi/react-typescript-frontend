@@ -93,8 +93,9 @@ const Customer = () => {
         }
     ];
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleRowClick = (params: any) => {
-        const selectedRow = searchState.customers.find((customer) => customer.id === params.row.id);
+        const selectedRow = searchState.customers.find((customer) => customer.id === params?.row.id);
         setSelectedCustomer(selectedRow);
     };
 
@@ -106,7 +107,7 @@ const Customer = () => {
 
     };
 
-    const handlePageChange = (event, page: number) => {
+    const handlePageChange = (event: unknown, page: number) => {
         setCurrentPage(page);
     };
 

@@ -63,7 +63,10 @@ const AddCustomer = () => {
             const newCustomer: ICustomer = {
                 firstName: state.firstName,
                 lastName: state.lastName,
-                email: state.email
+                email: state.email,
+                id: 0,
+                phone: "",
+                address: ""
             };
 
             try {
