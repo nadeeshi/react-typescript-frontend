@@ -7,9 +7,7 @@ export default defineConfig(() => {
     plugins: [react()],
     server: {
       port: 3000,
-    },
-    define: {
-      global: {},
+      https: true
     },
     build: {
       minify: false,
