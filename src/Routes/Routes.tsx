@@ -4,6 +4,7 @@ import UserPage from "../Pages/Users/User";
 import CustomerPage from "../Pages/Customers/Customers";
 import AddCustomer from "../Components/Customers/AddCustomer";
 import DashboardPage from "../Pages/Dashboard/Dashboard";
+import HealthPage from "../Pages/HealthCheck/HealthCheck";
 
 const Routes = () => {
 
@@ -19,7 +20,7 @@ const Routes = () => {
             children: [
                 {
                     path: '/',
-                    element:  <DashboardPage />
+                    element: <DashboardPage />
                 },
                 {
                     path: '/customers',
@@ -32,6 +33,9 @@ const Routes = () => {
                 {
                     path: '/users',
                     element: <UserPage title="Test" />
+                }, {
+                    path: '/health',
+                    element: <HealthPage />
                 }
             ]
         }
