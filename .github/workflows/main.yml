@@ -19,7 +19,7 @@ jobs:
           bump_version_scheme: patch
 
       - name: Build the Docker image
-        run: docker build -t ${{ vars.CONTAINER_IMAGE_REGISTRY }}/${{ vars.CONTAINER_IMAGE_GROUP }}/nr-frontend:latest -t ${{ vars.CONTAINER_IMAGE_REGISTRY }}/${{ vars.CONTAINER_IMAGE_GROUP }}/nr-frontend:${{ steps.create-release.outputs.version }} .
+        run: docker build -t ${{ vars.CONTAINER_IMAGE_REGISTRY }}/${{ vars.CONTAINER_IMAGE_GROUP }}/frontend:latest -t ${{ vars.CONTAINER_IMAGE_REGISTRY }}/${{ vars.CONTAINER_IMAGE_GROUP }}/frontend:${{ steps.create-release.outputs.version }} .
 
       - name: List Docker images
         run: docker images
@@ -38,4 +38,4 @@ jobs:
       - name: Release to ecr
         run: |
           echo "Pushing image to ECR..."
-          docker push ${{ vars.CONTAINER_IMAGE_REGISTRY }}/${{ vars.CONTAINER_IMAGE_GROUP }}/nr-frontend --all-tags
+          docker push ${{ vars.CONTAINER_IMAGE_REGISTRY }}/${{ vars.CONTAINER_IMAGE_GROUP }}/frontend --all-tags
